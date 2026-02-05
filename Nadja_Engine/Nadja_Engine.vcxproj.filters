@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Arquivos de Origem">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Recurso">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\states">
+      <UniqueIdentifier>{1b0e3890-22ac-4853-aafc-b2d315b8b77c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\states">
+      <UniqueIdentifier>{55128165-b6f5-4f13-a02f-c35ecdae9dbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\UI">
+      <UniqueIdentifier>{190d3325-b4f6-4128-bcd1-51686dfc230f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\UI\Menus">
+      <UniqueIdentifier>{0dd3bdd5-84c4-4d12-86f8-2926f5cf35fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\UI\HUD">
+      <UniqueIdentifier>{abdce80e-2ae8-4e21-b0a6-6c52fc5f672a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\UI">
+      <UniqueIdentifier>{5dfb4bd4-7cdb-4a8c-80ca-596a3106667e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\UI\Menus">
+      <UniqueIdentifier>{647c96d1-9c92-47ee-9820-0bfb48af7f16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\UI\HUD">
+      <UniqueIdentifier>{49231294-fa4e-433c-9407-1a3ab9141378}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\external_includes">
+      <UniqueIdentifier>{61f638bd-43c4-4769-b52e-122049e6bce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\external_includes">
+      <UniqueIdentifier>{4d7a224b-599c-4b99-b7cd-78caac4c9790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\audio">
+      <UniqueIdentifier>{842423c8-6703-4b39-b763-862d651a346f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\engine">
+      <UniqueIdentifier>{7417c9da-79b7-49c7-a6bd-677836f71d5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\save">
+      <UniqueIdentifier>{0ac151c5-6c30-4874-a652-dea54a270d20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\core">
+      <UniqueIdentifier>{6e3f870f-e144-445f-ba30-0182587e14c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\input">
+      <UniqueIdentifier>{3ac09dc4-585a-4a24-8cce-7dc276c1c3fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\graphics">
+      <UniqueIdentifier>{81359d4a-1630-4756-b456-c796f8608e34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\gameplay">
+      <UniqueIdentifier>{911a55ee-b710-4b70-88bf-39390e37bd6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\physics">
+      <UniqueIdentifier>{e0fef65c-311e-4d2b-b6dc-3c45d8a6e1d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\engine">
+      <UniqueIdentifier>{68e3519f-0450-4c7a-9f8b-0d3bd8239bac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\audio">
+      <UniqueIdentifier>{a2808551-1b17-4144-a593-da973807453d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\graphics">
+      <UniqueIdentifier>{41a0c080-76e2-49ff-b6f9-431d3dcb5954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\core">
+      <UniqueIdentifier>{cdc1042a-eab7-4d4b-b636-9bd7853b9849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\gameplay">
+      <UniqueIdentifier>{e0bedd8d-b2d5-412e-83f0-1819e0a7a571}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\input">
+      <UniqueIdentifier>{5ae1c1e7-cd5b-40fa-a01b-3f4b90caf73e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\physics">
+      <UniqueIdentifier>{474425f5-ab09-4cbe-8eba-a47364fb7771}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\save">
+      <UniqueIdentifier>{fc7bc0da-9037-4614-9b44-4dc0c9bfd2ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\terrain">
+      <UniqueIdentifier>{97b0d370-ba82-4c66-874d-a2f99fe6ebff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\terrain">
+      <UniqueIdentifier>{33e7d575-50a2-4027-b4bb-635ab0e972fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\math">
+      <UniqueIdentifier>{c6ac7b91-a52a-47af-abd0-8b2bee1a68d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\math">
+      <UniqueIdentifier>{d6691d47-a77b-49d1-8bc3-3c4d4cfbdb51}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="state\gameplay_state.cpp">
+      <Filter>Arquivos de Origem\states</Filter>
+    </ClCompile>
+    <ClCompile Include="state\statemanager.cpp">
+      <Filter>Arquivos de Origem\states</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\menus\pause_menu.cpp">
+      <Filter>Arquivos de Origem\UI\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\HUD\Gameplay_HUD.cpp">
+      <Filter>Arquivos de Origem\UI\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\audio_manager.cpp">
+      <Filter>Arquivos de Origem\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="save\save_system.hpp">
+      <Filter>Arquivos de Cabeçalho\save</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\asset_manager.cpp">
+      <Filter>Arquivos de Origem\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\entity_factory.cpp">
+      <Filter>Arquivos de Origem\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\actor.cpp">
+      <Filter>Arquivos de Origem\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\world.cpp">
+      <Filter>Arquivos de Origem\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\miniaudio.cpp">
+      <Filter>Arquivos de Origem\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\camera.cpp">
+      <Filter>Arquivos de Origem\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\animator.cpp">
+      <Filter>Arquivos de Origem\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="core\application.cpp">
+      <Filter>Arquivos de Origem\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\main.cpp">
+      <Filter>Arquivos de Origem\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\time.cpp">
+      <Filter>Arquivos de Origem\core</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\ui.cpp">
+      <Filter>Arquivos de Origem\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\sprite.cpp">
+      <Filter>Arquivos de Origem\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="input\input.cpp">
+      <Filter>Arquivos de Origem\input</Filter>
+    </ClCompile>
+    <ClCompile Include="gameplay\player.cpp">
+      <Filter>Arquivos de Origem\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="physics\physics.cpp">
+      <Filter>Arquivos de Origem\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="save\save_system.cpp">
+      <Filter>Arquivos de Origem\save</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain\terrain.cpp">
+      <Filter>Arquivos de Origem\terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\context.cpp">
+      <Filter>Arquivos de Origem\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="math\vec2.cpp">
+      <Filter>Arquivos de Origem\math</Filter>
+    </ClCompile>
+    <ClCompile Include="physics\sat.cpp">
+      <Filter>Arquivos de Origem\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="physics\gravity.cpp">
+      <Filter>Arquivos de Origem\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="gameplay\floor.cpp">
+      <Filter>Arquivos de Origem\gameplay</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="state\gameplay_state.hpp">
+      <Filter>Arquivos de Cabeçalho\states</Filter>
+    </ClInclude>
+    <ClInclude Include="state\pause_state.hpp">
+      <Filter>Arquivos de Cabeçalho\states</Filter>
+    </ClInclude>
+    <ClInclude Include="state\gamestate.hpp">
+      <Filter>Arquivos de Cabeçalho\states</Filter>
+    </ClInclude>
+    <ClInclude Include="state\statemanager.hpp">
+      <Filter>Arquivos de Cabeçalho\states</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\menus\pause_menu.hpp">
+      <Filter>Arquivos de Cabeçalho\UI\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\HUD\Gameplay_HUD.hpp">
+      <Filter>Arquivos de Cabeçalho\UI\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\json.hpp">
+      <Filter>Arquivos de Cabeçalho\external_includes</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\audio_manager.hpp">
+      <Filter>Arquivos de Cabeçalho\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\miniaudio.h">
+      <Filter>Arquivos de Cabeçalho\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\entity_factory.hpp">
+      <Filter>Arquivos de Cabeçalho\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\asset_manager.hpp">
+      <Filter>Arquivos de Cabeçalho\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\actor.hpp">
+      <Filter>Arquivos de Cabeçalho\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\entity.hpp">
+      <Filter>Arquivos de Cabeçalho\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="core\application.hpp">
+      <Filter>Arquivos de Cabeçalho\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\time.hpp">
+      <Filter>Arquivos de Cabeçalho\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\config.hpp">
+      <Filter>Arquivos de Cabeçalho\core</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\ui.hpp">
+      <Filter>Arquivos de Cabeçalho\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="input\input.hpp">
+      <Filter>Arquivos de Cabeçalho\input</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\animator.hpp">
+      <Filter>Arquivos de Cabeçalho\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\camera.hpp">
+      <Filter>Arquivos de Cabeçalho\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\world.hpp">
+      <Filter>Arquivos de Cabeçalho\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\physics.hpp">
+      <Filter>Arquivos de Cabeçalho\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\collider.hpp">
+      <Filter>Arquivos de Cabeçalho\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="gameplay\player.hpp">
+      <Filter>Arquivos de Cabeçalho\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\sprite.hpp">
+      <Filter>Arquivos de Cabeçalho\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain\terrain.hpp">
+      <Filter>Arquivos de Cabeçalho\terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\context.hpp">
+      <Filter>Arquivos de Cabeçalho\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="math\vec2.hpp">
+      <Filter>Arquivos de Cabeçalho\math</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\sat.hpp">
+      <Filter>Arquivos de Cabeçalho\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\phisycs_body.hpp">
+      <Filter>Arquivos de Cabeçalho\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\gravity.hpp">
+      <Filter>Arquivos de Cabeçalho\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="gameplay\floor.hpp">
+      <Filter>Arquivos de Cabeçalho\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain\slope.hpp">
+      <Filter>Arquivos de Cabeçalho\terrain</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
