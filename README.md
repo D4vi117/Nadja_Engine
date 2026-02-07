@@ -129,8 +129,8 @@ The goal is clarity, control, and long-term maintainability.
 
 ## License
 
-Personal / educational project.  
-Free to study and use as reference.
+This project is licensed under the MIT License.  
+See the LICENSE file for details.
 
 ---
 
