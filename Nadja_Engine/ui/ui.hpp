@@ -1,3 +1,38 @@
+/*
+ * @file ui.hpp
+ * @brief User Interface system for Nadja Engine.
+ *
+ * This header defines the UI namespace, which contains classes and
+ * functions for building and rendering user interface elements,
+ * including text, images, panels, buttons, containers, and layout managers.
+ *
+ * Responsibilities:
+ * - Providing base UI Element class with layout, update, render, and debug rendering
+ * - Supporting containers (Container, Canvas) and layout systems (VBox, HBox, GridPanel)
+ * - Managing text rendering (Text) and images (Image)
+ * - Implementing interactive elements such as Button with styling and callbacks
+ * - Providing helper functions for drawing primitives (drawRect, drawCross)
+ * - Integrating with AssetManager for font and texture resources
+ *
+ * Dependencies:
+ * - SDL3 (for rendering and events)
+ * - SDL3_ttf (for text rendering)
+ * - AssetManager.hpp (for font and texture management)
+ * - Vec2.hpp (for positioning and anchoring)
+ * - Config.hpp (for debug flags and logical rendering)
+ * - STL containers (vector, memory, string)
+ * - Functional (for callbacks)
+ *
+ * Notes:
+ * - Elements can be nested and anchored relative to their parent
+ * - Containers handle children layout, update, and rendering
+ * - Debug rendering can visualize bounding boxes and anchors when enabled
+ * - Designed for flexible and modular UI composition in the engine
+ *
+ * @author Davi Barbosa
+ * @date 2026
+ */
+
 #pragma once
 #include <SDL3/SDL.h>
 #include <SDL3_ttf/SDL_ttf.h>

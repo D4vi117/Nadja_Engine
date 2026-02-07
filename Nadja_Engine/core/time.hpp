@@ -21,7 +21,6 @@
  * date 2026
  */
 
-
 #pragma once
 #include <SDL3/SDL.h>
 

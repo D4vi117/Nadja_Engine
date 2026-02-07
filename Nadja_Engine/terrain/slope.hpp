@@ -1,3 +1,28 @@
+/*
+ * @file slope.hpp
+ * @brief Slope entity for Nadja Engine.
+ *
+ * This header defines the Slope class, a subclass of Sprite, representing
+ * ramp-like geometry in the game world.
+ *
+ * Responsibilities:
+ * - Storing texture, size, and base entity properties from Sprite
+ * - Setting static body type for physics interactions
+ * - Defining polygon colliders representing the slope surface
+ *
+ * Dependencies:
+ * - Sprite.hpp (base class)
+ * - Collider system (for collision detection)
+ *
+ * Notes:
+ * - getColliders() returns a polygon-shaped collider representing the slope
+ * - Designed for use in terrain and level design with proper physics response
+ * - Inherits rendering, movement, and other base functionality from Sprite
+ *
+ * @author Davi Barbosa
+ * @date 2026
+ */
+
 #pragma once
 #include "engine/sprite.hpp"
 
@@ -17,12 +42,10 @@ public:
         slope.shape = ShapeType::POLYGON;
         slope.type = ColliderType::BLOCK;
 
-        // pontos LOCAIS (origem = x, y da entidade)
-        // slope subindo da esquerda pra direita
         slope.points = {
-            { 0.0f, h },   // canto inferior esquerdo
-            { w,    0.0f },// canto superior direito
-            { w,    h }    // canto inferior direito
+            { 0.0f, h },
+            { w,    0.0f },
+            { w,    h }    
         };
 
         cols.push_back(slope);

@@ -2,7 +2,6 @@
 #include <iostream>
 #include "core/config.hpp"
 #include "input/input.hpp"
-#include "state/statemanager.hpp"
 void PauseMenu::start() {
 
     canvas.rect = { 0, 0, 0, 0 };

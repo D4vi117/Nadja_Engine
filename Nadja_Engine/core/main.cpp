@@ -40,7 +40,7 @@
 #include "time.hpp"
 #include "graphics/camera.hpp"
 #include "ui/ui.hpp"
-#include "state/statemanager.hpp"
+#include "state/state_manager.hpp"
 #include "state/gameplay_state.hpp"
 #include "engine/asset_manager.hpp"
 #include "engine/context.hpp"

@@ -1,3 +1,32 @@
+/*
+ * @file assetManager.hpp
+ * @brief Centralized resource manager for Nadja Engine.
+ *
+ * This header defines the AssetManager class, responsible for
+ * loading, storing, and providing access to game assets such as
+ * textures and fonts.
+ *
+ * Responsibilities:
+ * - Initializing and shutting down asset management
+ * - Loading textures and caching them for reuse
+ * - Loading fonts and caching them for reuse
+ * - Providing getter functions for textures and fonts
+ *
+ * Dependencies:
+ * - SDL3 (for rendering and textures)
+ * - SDL3_ttf (for font loading and management)
+ * - STL containers (unordered_map, string)
+ *
+ * Notes:
+ * - All methods are static; no instance of AssetManager is needed.
+ * - Assets are stored in maps for fast lookup by string identifiers.
+ * - Keep this class focused on resource management; rendering or game logic
+ *   should be handled elsewhere.
+ *
+ * @author Davi Barbosa
+ * @date 2026
+ */
+
 #pragma once
 #include <SDL3/SDL.h>
 #include <SDL3_ttf/SDL_ttf.h>

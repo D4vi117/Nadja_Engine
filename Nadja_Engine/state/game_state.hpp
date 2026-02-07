@@ -1,3 +1,30 @@
+/*
+ * @file gaame_state.hpp
+ * @brief Base class for game states in Nadja Engine.
+ *
+ * This header defines the GameState class, an abstract base class
+ * providing the interface and common functionality for all game
+ * states, such as menus, gameplay, or pause screens.
+ *
+ * Responsibilities:
+ * - Defining virtual methods for state lifecycle (enter, exit, pause, resume)
+ * - Handling events, updating logic, and rendering for derived states
+ * - Providing helper functions for world and UI rendering setup
+ *
+ * Dependencies:
+ * - SDL3 (for rendering and events)
+ * - core/config.hpp (for logical rendering configuration)
+ *
+ * Notes:
+ * - Derived states must implement handleEvent(), update(), and render()
+ * - BeginWorldRender() and BeginUIRender() help configure SDL renderer
+ *   for consistent world and UI drawing
+ * - Designed to enforce a consistent state-based architecture in the engine
+ *
+ * @author Davi Barbosa
+ * @date 2026
+ */
+
 #pragma once
 #include <SDL3/SDL.h>
 #include "core/config.hpp"

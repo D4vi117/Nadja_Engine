@@ -10,7 +10,6 @@
 #include "input/input.hpp"
 #include "engine/context.hpp"
 
-#include "gameplay/floor.hpp"
 
 GameplayState::GameplayState(World& w, SDL_Renderer* r, StateManager& s)
     : world(w), renderer(r), states(s) {

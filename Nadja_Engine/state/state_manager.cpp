@@ -1,4 +1,4 @@
-#include "statemanager.hpp"
+#include "state_manager.hpp"
 
 void StateManager::push(std::unique_ptr<GameState> state) {
     if (!stack.empty())

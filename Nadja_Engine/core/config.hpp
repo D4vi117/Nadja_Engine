@@ -1,10 +1,23 @@
 /*
- * Engine compile-time configuration.
+ * @file config.hpp
+ * @brief Engine configuration constants for Nadja Engine.
  *
- * Contains constants that define core engine behavior and are not meant
- * to be modified at runtime.
- * 
- * @author Davi
+ * This header defines compile-time constants for engine settings,
+ * including rendering and debug options.
+ *
+ * Responsibilities:
+ * - Providing logical screen resolution and target FPS
+ * - Enabling or disabling debug features (FPS display, collision, HUD)
+ * - Centralizing configuration for easy adjustment
+ *
+ * Dependencies:
+ * - None (pure compile-time constants)
+ *
+ * Notes:
+ * - All values are constexpr and should not change at runtime
+ * - Use the Config namespace to access these settings across the engine
+ *
+ * @author Davi Barbosa
  * @date 2026
  */
 

@@ -1,3 +1,34 @@
+/*
+ * @file entity.hpp
+ * @brief Base class for all entities in Nadja Engine.
+ *
+ * This header defines the Entity class, which serves as the base
+ * for all in-game objects with position, rotation, physics, and
+ * collision behavior.
+ *
+ * Responsibilities:
+ * - Storing core entity properties (position, size, rotation)
+ * - Managing optional physics body integration
+ * - Tracking collisions per frame
+ * - Providing a common interface for update, render, and interaction
+ * - Defining pure virtual methods for movement and collider retrieval
+ *
+ * Dependencies:
+ * - SDL3 (for rendering)
+ * - Physics system headers (Collider, PhysicsBody)
+ * - AudioManager (for potential audio interactions)
+ * - JSON library for prefab/data serialization
+ *
+ * Notes:
+ * - This is an abstract base class; derived classes should implement
+ *   move() and getColliders() methods.
+ * - Physics integration is optional and uses PhysicsBody when available.
+ * - Collisions are tracked per-frame and cleared using clearCollisions().
+ *
+ * @author Davi Barbosa
+ * @date 2026
+ */
+
 #pragma once
 #include <SDL3/SDL.h>
 #include <string>
@@ -15,7 +46,7 @@ public:
     float y = 0;
     float z = 0;
 
-    float rotation = 0.0f; //redians
+    float rotation_rad = 0.0f;
     
     float w = 0;
     float h = 0;

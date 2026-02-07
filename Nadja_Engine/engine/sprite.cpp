@@ -80,8 +80,8 @@ const void Sprite::debug_collider(SDL_Renderer* r) {
             SDL_RenderRect(r, &rect);
         }
         else {
-            float cosr = std::cos(rotation);
-            float sinr = std::sin(rotation);
+            float cosr = std::cos(rotation_rad);
+            float sinr = std::sin(rotation_rad);
 
             for (size_t i = 0; i < c.points.size(); i++) {
                 Vec2 p1 = c.points[i];

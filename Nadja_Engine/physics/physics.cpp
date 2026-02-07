@@ -12,8 +12,8 @@ static bool intersect(const SDL_FRect& a, const SDL_FRect& b) {
 
 std::vector<Vec2> getWorldPoints(const Entity* e, const Collider& c) {
     std::vector<Vec2> out;
-    float cosr = std::cos(e->rotation);
-    float sinr = std::sin(e->rotation);
+    float cosr = std::cos(e->rotation_rad);
+    float sinr = std::sin(e->rotation_rad);
 
     for (auto& p : c.points) {
         Vec2 r;

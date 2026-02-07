@@ -1,3 +1,28 @@
+/*
+ * @file terrain.hpp
+ * @brief Terrain entity for Nadja Engine.
+ *
+ * This header defines the Terrain class, a subclass of Sprite, representing
+ * static terrain blocks in the game world.
+ *
+ * Responsibilities:
+ * - Storing texture, size, and base entity properties from Sprite
+ * - Setting static body type for physics interactions
+ * - Defining AABB colliders representing solid terrain
+ *
+ * Dependencies:
+ * - Sprite.hpp (base class)
+ * - Collider system (for collision detection)
+ *
+ * Notes:
+ * - getColliders() returns an AABB collider covering the terrain block
+ * - Intended for level geometry, ground, and platforms
+ * - Inherits rendering, movement, and other base functionality from Sprite
+ *
+ * @author Davi Barbosa
+ * @date 2026
+ */
+
 #pragma once
 #include "engine/sprite.hpp"
 

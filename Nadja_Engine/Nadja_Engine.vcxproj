@@ -134,7 +134,6 @@
   <ItemGroup>
     <ClCompile Include="engine\actor.cpp" />
     <ClCompile Include="engine\context.cpp" />
-    <ClCompile Include="gameplay\floor.cpp" />
     <ClCompile Include="graphics\animator.cpp" />
     <ClCompile Include="core\application.cpp" />
     <ClCompile Include="engine\asset_manager.cpp" />
@@ -144,7 +143,6 @@
     <ClCompile Include="math\vec2.cpp" />
     <ClCompile Include="physics\gravity.cpp" />
     <ClCompile Include="physics\sat.cpp" />
-    <ClCompile Include="terrain\terrain.cpp" />
     <ClCompile Include="ui\HUD\Gameplay_HUD.cpp" />
     <ClCompile Include="state\gameplay_state.cpp" />
     <ClCompile Include="input\input.cpp" />
@@ -164,7 +162,6 @@
   <ItemGroup>
     <ClInclude Include="engine\actor.hpp" />
     <ClInclude Include="engine\context.hpp" />
-    <ClInclude Include="gameplay\floor.hpp" />
     <ClInclude Include="graphics\animator.hpp" />
     <ClInclude Include="core\application.hpp" />
     <ClInclude Include="engine\asset_manager.hpp" />
@@ -179,7 +176,7 @@
     <ClInclude Include="physics\phisycs_body.hpp" />
     <ClInclude Include="physics\sat.hpp" />
     <ClInclude Include="state\gameplay_state.hpp" />
-    <ClInclude Include="state\gamestate.hpp" />
+    <ClInclude Include="state\game_state.hpp" />
     <ClInclude Include="terrain\slope.hpp" />
     <ClInclude Include="terrain\terrain.hpp" />
     <ClInclude Include="ui\HUD\Gameplay_HUD.hpp" />
@@ -187,11 +184,10 @@
     <ClInclude Include="libs\json.hpp" />
     <ClInclude Include="audio\miniaudio.h" />
     <ClInclude Include="ui\menus\pause_menu.hpp" />
-    <ClInclude Include="state\pause_state.hpp" />
     <ClInclude Include="physics\physics.hpp" />
     <ClInclude Include="gameplay\player.hpp" />
     <ClInclude Include="engine\sprite.hpp" />
-    <ClInclude Include="state\statemanager.hpp" />
+    <ClInclude Include="state\state_manager.hpp" />
     <ClInclude Include="core\time.hpp" />
     <ClInclude Include="ui\ui.hpp" />
     <ClInclude Include="engine\world.hpp" />

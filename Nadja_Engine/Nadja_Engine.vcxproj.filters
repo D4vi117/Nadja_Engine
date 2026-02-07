@@ -171,9 +171,6 @@
     <ClCompile Include="save\save_system.cpp">
       <Filter>Arquivos de Origem\save</Filter>
     </ClCompile>
-    <ClCompile Include="terrain\terrain.cpp">
-      <Filter>Arquivos de Origem\terrain</Filter>
-    </ClCompile>
     <ClCompile Include="engine\context.cpp">
       <Filter>Arquivos de Origem\engine</Filter>
     </ClCompile>
@@ -186,21 +183,15 @@
     <ClCompile Include="physics\gravity.cpp">
       <Filter>Arquivos de Origem\physics</Filter>
     </ClCompile>
-    <ClCompile Include="gameplay\floor.cpp">
-      <Filter>Arquivos de Origem\gameplay</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="state\gameplay_state.hpp">
       <Filter>Arquivos de Cabeçalho\states</Filter>
     </ClInclude>
-    <ClInclude Include="state\pause_state.hpp">
+    <ClInclude Include="state\game_state.hpp">
       <Filter>Arquivos de Cabeçalho\states</Filter>
     </ClInclude>
-    <ClInclude Include="state\gamestate.hpp">
-      <Filter>Arquivos de Cabeçalho\states</Filter>
-    </ClInclude>
-    <ClInclude Include="state\statemanager.hpp">
+    <ClInclude Include="state\state_manager.hpp">
       <Filter>Arquivos de Cabeçalho\states</Filter>
     </ClInclude>
     <ClInclude Include="ui\menus\pause_menu.hpp">
@@ -283,9 +274,6 @@
     </ClInclude>
     <ClInclude Include="physics\gravity.hpp">
       <Filter>Arquivos de Cabeçalho\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="gameplay\floor.hpp">
-      <Filter>Arquivos de Cabeçalho\gameplay</Filter>
     </ClInclude>
     <ClInclude Include="terrain\slope.hpp">
       <Filter>Arquivos de Cabeçalho\terrain</Filter>

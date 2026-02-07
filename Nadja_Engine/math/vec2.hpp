@@ -1,3 +1,27 @@
+/*
+ * @file Vec2.hpp
+ * @brief 2D vector math structure for Nadja Engine.
+ *
+ * This header defines the Vec2 struct, representing a 2-dimensional
+ * vector with common vector operations for game development.
+ *
+ * Responsibilities:
+ * - Storing 2D coordinates (x, y)
+ * - Supporting basic arithmetic operations (+, -, *, +=, -=, *=)
+ * - Providing vector utility functions such as dot product, normalization,
+ *   and perpendicular vector calculation
+ *
+ * Dependencies:
+ * - <cmath> for square root calculations
+ *
+ * Notes:
+ * - All operations are float-based for smooth movement and physics calculations
+ * - Designed for use in physics, movement, and collision systems
+ *
+ * @author Davi Barbosa
+ * @date 2026
+ */
+
 #pragma once
 #include <cmath>
 
@@ -5,7 +29,7 @@ struct Vec2 {
     float x = 0;
     float y = 0;
 
-    // soma
+
     Vec2 operator+(const Vec2& other) const {
         return { x + other.x, y + other.y };
     }
@@ -16,7 +40,7 @@ struct Vec2 {
         return *this;
     }
 
-    // subtração
+
     Vec2 operator-(const Vec2& other) const {
         return { x - other.x, y - other.y };
     }
@@ -29,7 +53,7 @@ struct Vec2 {
         return *this;
     }
 
-    // multiplicação por escalar
+
     Vec2 operator*(float scalar) const {
         return { x * scalar, y * scalar };
     }
@@ -40,7 +64,7 @@ struct Vec2 {
         return *this;
     }
 
-    // utilidades que tu já usa
+
     float dot(const Vec2& o) const {
         return x * o.x + y * o.y;
     }

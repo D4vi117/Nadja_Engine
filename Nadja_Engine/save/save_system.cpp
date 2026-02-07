@@ -15,14 +15,13 @@ using json = nlohmann::json;
 bool SaveSystem::saveWorld(const World& world, const std::string& path)
 {
     json root;
-    root["level"] = "level.json"; // depois você puxa isso do World
+    root["level"] = "level.json";
     root["entities"] = json::object();
     root["spawned"] = json::array();
 
     for (const auto& e : world.getEntities()) {
         if (!e) continue;
 
-        // ENTIDADE DO LEVEL salva só estado
         if (e->persistent) {
             json state;
 
@@ -39,7 +38,7 @@ bool SaveSystem::saveWorld(const World& world, const std::string& path)
 
             root["entities"][std::to_string(e->persistentId)] = state;
         }
-        // ENTIDADE DINÂMICA salva inteira
+
         else {
             json ent;
             ent["prefab"] = e->prefabPath;
@@ -81,10 +80,8 @@ bool SaveSystem::loadWorld(World& world, const std::string& path)
     json root;
     file >> root;
 
-    // carrega level base
     world.loadLevel(root.value("level", "level.json"));
 
-    // aplica estado nas entidades persistentes
     if (root.contains("entities")) {
         for (auto& [idStr, state] : root["entities"].items()) {
             uint32_t id = std::stoul(idStr);
@@ -105,7 +102,6 @@ bool SaveSystem::loadWorld(World& world, const std::string& path)
         }
     }
 
-    //  recria entidades dinâmicas
     if (root.contains("spawned")) {
         for (auto& ent : root["spawned"]) {
             std::string prefab = ent["prefab"];

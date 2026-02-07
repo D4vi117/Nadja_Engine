@@ -1,3 +1,37 @@
+/*
+ * @file AudioManager.hpp
+ * @brief Audio management system for Nadja Engine.
+ *
+ * This header defines the AudioManager class, responsible for loading,
+ * playing, and managing sound assets within the engine.
+ *
+ * Current Implementation:
+ * - Uses miniaudio library for audio playback and management.
+ *
+ * Planned Change:
+ * - The system is intended to migrate to SDL_mixer in the future
+ *   for better SDL integration and more robust audio features.
+ *
+ * Responsibilities:
+ * - Initializing the audio engine
+ * - Loading sound files and caching them
+ * - Playing sounds with optional looping
+ * - Adjusting volume per sound
+ * - Cleaning up all audio resources on shutdown
+ *
+ * Dependencies:
+ * - miniaudio
+ * - STL containers (unordered_map, string, memory)
+ *
+ * Notes:
+ * - This is a static manager class; all methods are class-level.
+ * - Keep this header focused on interface; implementation details
+ *   reside in the corresponding .cpp file.
+ *
+ * @author Davi Barbosa
+ * @date 2026
+ */
+
 #pragma once
 #include "miniaudio.h"
 #include <string>
