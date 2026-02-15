@@ -33,6 +33,7 @@ public:
     void start();
     void update();
     void render(SDL_Renderer* r);
+	void forceLayout() { canvas.layout(); }
 
     std::function<void()> onResume;
     std::function<void()> onSave;

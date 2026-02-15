@@ -113,6 +113,7 @@ SDL_AppResult SDL_AppEvent(void*, SDL_Event* e) {
         );
 
     }
+
     Input::handleEvent(*e);
 
     states.handleEvent(*e);

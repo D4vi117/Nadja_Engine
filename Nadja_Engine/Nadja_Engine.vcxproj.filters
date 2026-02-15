@@ -108,7 +108,7 @@
     <ClCompile Include="state\gameplay_state.cpp">
       <Filter>Arquivos de Origem\states</Filter>
     </ClCompile>
-    <ClCompile Include="state\statemanager.cpp">
+    <ClCompile Include="state\state_manager.cpp">
       <Filter>Arquivos de Origem\states</Filter>
     </ClCompile>
     <ClCompile Include="ui\menus\pause_menu.cpp">
