@@ -4,7 +4,7 @@
 #include "input/input.hpp"
 void PauseMenu::start() {
 
-    canvas.rect = { 0, 0, 0, 0 };
+    canvas.rect = { 0, 0, Config::Render::LOGICAL_WIDTH, Config::Render::LOGICAL_HEIGHT };
 	canvas.padding = { 20,20,20,20 };
 
     auto panel = canvas.add(std::make_unique<UI::Panel>());
@@ -58,8 +58,8 @@ void PauseMenu::start() {
 
 void PauseMenu::update() {
     canvas.update();
+    
 }
-
 void PauseMenu::render(SDL_Renderer* r) {
     canvas.render(r);
     UI::drawCross(r, Input::mouse.x, Input::mouse.y, 6.f);

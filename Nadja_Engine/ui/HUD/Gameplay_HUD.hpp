@@ -37,6 +37,7 @@ public:
 	void start();
 	void update(float dt);
 	void render(SDL_Renderer* r);
+	void forceLayout() { canvas.layout(); }
 	Player* player = nullptr;
 
 private:

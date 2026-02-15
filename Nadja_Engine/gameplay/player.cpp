@@ -60,7 +60,6 @@ void Player::update(float delta) {
         }
     }
 
-    // coyote time
     if (onGround) {
         physics->grounded = true;
         physics->groundTimer = 0.1f;
@@ -75,7 +74,7 @@ void Player::update(float delta) {
 
     auto& body = physics.value();
 
-    // movimento horizontal
+
     body.velocity.x = 0;
 
     if (Input::down("move_left"))
@@ -101,7 +100,6 @@ void Player::update(float delta) {
         }
     }
 
-
     if (Input::pressed("interact")) {
         for (auto& c : collisions) {
             if (c.type == ColliderType::OVERLAP) {
@@ -116,13 +114,10 @@ void Player::update(float delta) {
         }
     }
 
-
-
     animator.play(IDLE);
 
     animator.update(delta);
-    
-    //move(dx, 0);
+
 	g_camera.follow(x, y, w, h);
 }
 

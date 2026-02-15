@@ -29,7 +29,7 @@ void GameplayState::enter() {
 
     // ===== Pause Menu Initialization =====
     pauseMenu.onResume = [this]() {
-        std::cout << "Resuming game from PauseState\n";
+        std::cout << "Resuming game\n";
         setPaused(false);
         };
 
@@ -43,8 +43,6 @@ void GameplayState::enter() {
         };
 
     pauseMenu.start();
-
-
 
 	// ===== Input Bindings =====
     Input::clearBindings();
@@ -67,36 +65,18 @@ void GameplayState::enter() {
 
     Input::bindMouseButton("attack", SDL_BUTTON_LEFT);
 
-
-    // ===== CARREGA TEXTURA =====
-    SDL_Surface* surface = SDL_LoadBMP("assets/sprites/test.bmp");
-    if (!surface) {
-        SDL_Log("Erro ao carregar BMP: %s", SDL_GetError());
-        return;
-    }
-
-    texture = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_DestroySurface(surface);
-
-    if (!texture) {
-        SDL_Log("Erro ao criar textura: %s", SDL_GetError());
-        return;
-    }
     // ===== PLAYER =====
-    // assets
     AudioManager::loadSound("interact", "assets/sounds/Ouch-6.wav");
-    AudioManager::loadSound("footstep", "assets/sounds/1980s-Casio-Piano-C5.wav");
     AssetManager::loadTexture("player", "assets/sprites/player/player_IDLE.png");
     AssetManager::loadTexture("test", "assets/sprites/test.png");
     AssetManager::loadTexture("grass", "assets/sprites/sand_grass.png");
     AssetManager::loadTexture("dirt", "assets/sprites/dirt.png");
     AssetManager::loadTexture("slope", "assets/sprites/slope.png");
+	// ===== LOAD SAVE =====
     if (!SaveSystem::loadWorld(world, "saves/save1.json")){
         std::cerr << "[GameplayState] Failed to load save, loading default level\n";
         world.loadLevel("level.json");
 	}
-
-    //world.loadLevel("level.json");
 
     world.update(0.f);
 
@@ -117,7 +97,35 @@ void GameplayState::handleEvent(const SDL_Event& e) {
     if (e.type == SDL_EVENT_KEY_DOWN &&
         e.key.key == SDLK_ESCAPE) {
 		togglePause();
+		return;
+    }
+    if (e.type == SDL_EVENT_KEY_DOWN &&
+        e.key.key == SDLK_F11) {
 
+		SDL_SetWindowFullscreen(Engine::window, true);
+        return;
+
+    }
+    if (e.type == SDL_EVENT_KEY_DOWN &&
+        e.key.key == SDLK_F5) {
+        SaveSystem::saveWorld(world, "saves/save1.json");
+        return;
+
+	}
+    if (e.type == SDL_EVENT_KEY_DOWN &&
+        e.key.key == SDLK_F6) {
+        loadSave("saves/save1.json");
+		std::cout << "Load requested\n";
+        return;
+
+    }
+    if (e.type == SDL_EVENT_WINDOW_RESIZED ||
+        e.type == SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED) {
+
+        if (hud)
+            hud->forceLayout();
+
+        pauseMenu.forceLayout();
     }
 }
 
@@ -128,7 +136,6 @@ void GameplayState::loadSave(const std::string& path) {
         return;
     }
 
-    // FORÇA SPAWN IMEDIATO
     world.update(0.f);
 
     hud.reset();
@@ -162,7 +169,7 @@ void GameplayState::update(float dt) {
 
 void GameplayState::render(SDL_Renderer* r) {
 
-    // ===== MUNDO =====
+    // ===== WORLD =====
     BeginWorldRender(r);
     world.render(r);
 

@@ -73,7 +73,6 @@ const void Sprite::debug_collider(SDL_Renderer* r) {
             SDL_SetRenderDrawColor(r, 0, 255, 0, 0);
 
         if (c.shape == ShapeType::AABB) {
-            continue;
             SDL_FRect rect = c.rect;
             rect.x -= g_camera.x;
             rect.y -= g_camera.y;
