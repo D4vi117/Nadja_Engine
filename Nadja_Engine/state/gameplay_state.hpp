@@ -34,8 +34,10 @@
 #include "game_state.hpp"
 #include "engine/world.hpp"
 #include "state_manager.hpp"
-#include "ui/HUD/Gameplay_HUD.hpp"
-#include "ui/menus/pause_menu.hpp"
+#include "gameplay/player.hpp"
+#include "ui/HUD/death_screen.hpp"
+
+class GameplayHUD;
 
 class GameplayState : public GameState {
 public:
@@ -53,6 +55,9 @@ public:
         saveToLoad = path;
         loadRequested = true;
     }
+
+	int Points = 0;
+
 private:
     // GameplayState.hpp
     bool loadRequested = false;
@@ -63,6 +68,8 @@ private:
     StateManager& states;
     SDL_Texture* texture = nullptr;
     std::unique_ptr<GameplayHUD> hud;
-    PauseMenu pauseMenu;
+    DeathScreen deathScreen;
+	Player* playerRef = nullptr;
+
 
 };

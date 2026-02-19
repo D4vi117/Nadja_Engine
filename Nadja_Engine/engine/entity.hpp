@@ -72,7 +72,6 @@ public:
 
     virtual void move(float dx, float dy) = 0;
 
-    // agora retorna TODOS os colliders
     virtual std::vector<Collider> getColliders() const = 0;
 
     void clearCollisions() {

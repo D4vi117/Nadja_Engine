@@ -31,23 +31,20 @@
 #include "ui/ui.hpp"
 #include "gameplay/player.hpp"
 
+class GameplayState;
+
 class GameplayHUD {
 public:
-	GameplayHUD(Player* player);
+	GameplayHUD(Player* player, GameplayState* state);
 	void start();
 	void update(float dt);
 	void render(SDL_Renderer* r);
 	void forceLayout() { canvas.layout(); }
 	Player* player = nullptr;
+	GameplayState* state = nullptr;
 
 private:
 	UI::Canvas canvas;
-	UI::Panel* healthFill = nullptr;
-	UI::Panel* healthDecreaser = nullptr;
-
-	UI::Text* healthText = nullptr;
 	UI::Text* fpsText = nullptr;
-
-	float delayedHealth = 100.f;
-	float smoothHealth = 100.f;
+	UI::Text* pointsText = nullptr;
 };

@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClCompile Include="engine\actor.cpp" />
     <ClCompile Include="engine\context.cpp" />
+    <ClCompile Include="gameplay\pipe.cpp" />
     <ClCompile Include="graphics\animator.cpp" />
     <ClCompile Include="core\application.cpp" />
     <ClCompile Include="engine\asset_manager.cpp" />
@@ -147,7 +148,7 @@
     <ClCompile Include="state\gameplay_state.cpp" />
     <ClCompile Include="input\input.cpp" />
     <ClCompile Include="audio\miniaudio.cpp" />
-    <ClCompile Include="ui\menus\pause_menu.cpp" />
+    <ClCompile Include="ui\HUD\death_screen.cpp" />
     <ClCompile Include="physics\physics.cpp" />
     <ClCompile Include="gameplay\player.cpp" />
     <ClCompile Include="save\save_system.cpp" />
@@ -162,6 +163,7 @@
   <ItemGroup>
     <ClInclude Include="engine\actor.hpp" />
     <ClInclude Include="engine\context.hpp" />
+    <ClInclude Include="gameplay\pipe.hpp" />
     <ClInclude Include="graphics\animator.hpp" />
     <ClInclude Include="core\application.hpp" />
     <ClInclude Include="engine\asset_manager.hpp" />
@@ -183,7 +185,7 @@
     <ClInclude Include="input\input.hpp" />
     <ClInclude Include="libs\json.hpp" />
     <ClInclude Include="audio\miniaudio.h" />
-    <ClInclude Include="ui\menus\pause_menu.hpp" />
+    <ClInclude Include="ui\HUD\death_screen.hpp" />
     <ClInclude Include="physics\physics.hpp" />
     <ClInclude Include="gameplay\player.hpp" />
     <ClInclude Include="engine\sprite.hpp" />

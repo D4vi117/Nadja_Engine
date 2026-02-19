@@ -110,6 +110,7 @@ SDL_AppResult SDL_AppEvent(void*, SDL_Event* e) {
             Config::Render::LOGICAL_WIDTH,
             Config::Render::LOGICAL_HEIGHT,
             SDL_LOGICAL_PRESENTATION_OVERSCAN
+
         );
 
     }

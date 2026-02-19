@@ -47,6 +47,7 @@ public:
             Config::Render::LOGICAL_WIDTH,
             Config::Render::LOGICAL_HEIGHT,
             SDL_LOGICAL_PRESENTATION_OVERSCAN
+
         );
         SDL_SetRenderViewport(r, nullptr);
     }

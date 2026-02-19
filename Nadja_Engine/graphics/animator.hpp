@@ -46,11 +46,11 @@
         void update(float dt);
         void render(SDL_Renderer* r, SDL_Texture* tex, float x, float y, float scale = 1.f);
 
+		float rotation_cos = 0;
     private:
         SDL_FRect src;
         float spriteW, spriteH;
         int cols, rows;
-
         std::unordered_map<int, Animation> animations;
         int currentAnim = -1;
         size_t frameIndex = 0;

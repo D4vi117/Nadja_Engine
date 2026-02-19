@@ -7,9 +7,10 @@ static float maxSpeed = 200.f;
 
 
 Player::Player(SDL_Texture* texture)
-    : Actor(texture, 16, 32), animator(16, 32, 4, 4)
+    : Actor(texture, 17, 12), animator(17, 12, 3, 1)
 {
     bodyType = BodyType::DYNAMIC;
+ 
 }
 void Player::start() {
     bodyType = BodyType::DYNAMIC;
@@ -18,26 +19,19 @@ void Player::start() {
 
     physics.emplace();
     physics->useGravity = true;
-    physics->gravityScale = 1.0f;
+    physics->gravityScale = 2.5f;
     physics->velocity = { 0, 0 };
 
     animator.addAnimation(
         IDLE,
-        { 0,0,0,0,0,0,0,0,0,0,0,0, 1, 2, 3 },
+        {0, 1, 2 },
         0.2f
     );
 
-    animator.addAnimation(
-        WALK,
-        { 2, 2, 2, 2 },
-        0.1f
-    );
 
     animator.play(IDLE);
 
 }
-
-
 
 void Player::update(float delta) {
 
@@ -49,91 +43,61 @@ void Player::update(float delta) {
     if (!physics->useGravity)
 		physics->velocity.y = 0;
 
-    bool onGround = false;
-
-    for (auto& c : collisions) {
-        if (c.type == ColliderType::BLOCK &&
-            c.normal.y > 0.5f &&
-            physics->velocity.y >= 0) {
-            onGround = true;
-            break;
-        }
-    }
-
-    if (onGround) {
-        physics->grounded = true;
-        physics->groundTimer = 0.1f;
-    }
-    else if (physics->groundTimer > 0) {
-        physics->groundTimer -= delta;
-        physics->grounded = true;
-    }
-    else {
-        physics->grounded = false;
-    }
-
     auto& body = physics.value();
 
 
-    body.velocity.x = 0;
-
-    if (Input::down("move_left"))
-        body.velocity.x = -maxSpeed;
-    if (Input::down("move_right"))
-        body.velocity.x = maxSpeed;
-
-    if (Input::down("move_up")) {
-        if (!physics->useGravity)
-		    body.velocity.y = -maxSpeed;
-    }
-    if (Input::down("move_down"))
-    {
-        if (!physics->useGravity) 
-			body.velocity.y = maxSpeed;
-
-    }
     if (Input::pressed("move_up")) {
         if (physics->useGravity){
-            if (body.grounded){
-                body.velocity.y = -150.0f;
-            }
+                body.velocity.y = -250.0f;
         }
     }
+    float maxTilt = 45.f;
+    float normalized = body.velocity.y / 300.f;
 
-    if (Input::pressed("interact")) {
-        for (auto& c : collisions) {
-            if (c.type == ColliderType::OVERLAP) {
-                c.other->interact(this);
-				
-                AudioManager::playSound("interact");
-                
-				health -= 10;
-                
-                break;
-            }
-        }
-    }
+    if (normalized > 1.f) normalized = 1.f;
+    if (normalized < -1.f) normalized = -1.f;
+
+    float targetRotation = normalized * maxTilt;
+
+    animator.rotation_cos +=
+        (targetRotation - animator.rotation_cos) * 8.f * delta;
 
     animator.play(IDLE);
 
     animator.update(delta);
 
-	g_camera.follow(x, y, w, h);
+	g_camera.follow(x + 150, 0, w, h);
+    for (auto& c : collisions)
+    {   
+        if (c.other->name == "Pipe")
+        {
+            body.velocity.y = 0.0f;
+            alive = false;
+        }
+    }
 }
-
 
 void Player::render(SDL_Renderer * r)
 {
+
     float rx = x - g_camera.x;
     float ry = y - g_camera.y;
 
     animator.render(r, texture, rx, ry, 1);
-}
-void Player::serializeState(nlohmann::json& out) const {
-    out["Health"]["current"] = health;
+    
 }
 
-void Player::deserializeState(const nlohmann::json& in) {
-    if (in.contains("Health"))
-        health = in["Health"].value("current", health);
+std::vector<Collider> Player::getColliders() const
+{
+    std::vector<Collider> cols;
+
+    Collider body;
+    body.shape = ShapeType::AABB;
+    body.type = ColliderType::OVERLAP;
+    body.rect = { x, y, w, h };
+    cols.push_back(body);
+
+    cols.push_back(body);
+
+    return cols;
 }

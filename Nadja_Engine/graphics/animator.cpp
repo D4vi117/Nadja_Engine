@@ -56,6 +56,6 @@ void Animator::render(SDL_Renderer* r, SDL_Texture* tex, float x, float y, float
         spriteW * scale,
         spriteH * scale
     };
-
-    SDL_RenderTexture(r, tex, &src, &dst);
+	SDL_RenderTextureRotated(r, tex, &src, &dst, rotation_cos, nullptr, SDL_FLIP_NONE);
+   //SDL_RenderTexture(r, tex, &src, &dst);
 }

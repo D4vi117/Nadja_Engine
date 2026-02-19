@@ -28,16 +28,14 @@
 #pragma once
 #include "ui/ui.hpp"
 
-class PauseMenu {
+class DeathScreen {
 public:
     void start();
     void update();
     void render(SDL_Renderer* r);
 	void forceLayout() { canvas.layout(); }
 
-    std::function<void()> onResume;
-    std::function<void()> onSave;
-    std::function<void()> onLoad;
+    std::function<void()> onBegin;
 
 private:
     UI::Canvas canvas;

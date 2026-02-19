@@ -1,4 +1,3 @@
-
 #include "save_system.hpp"
 
 #include <fstream>

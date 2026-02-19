@@ -6,6 +6,7 @@
 #include <cmath>
 #include <fstream>
 #include "entity_factory.hpp"
+#include "core/config.hpp"
 
 World::World() = default;
 
@@ -42,7 +43,7 @@ void World::spawnNow(std::unique_ptr<Entity> e) {
     entities.push_back(std::move(e));
 }
 void World::update(float dt) {
-    // spawn pendente
+
     for (auto& e : toAdd) {
         e->start();
         entities.push_back(std::move(e));
@@ -50,8 +51,10 @@ void World::update(float dt) {
     toAdd.clear();
 
     if (!paused) {
-        for (auto& e : entities)
+        for (auto& e : entities){
             e->update(dt);
+            
+    }
         const float step = 1.0f / 120.0f;
         float accumulator = dt;
 
@@ -66,7 +69,6 @@ void World::update(float dt) {
         }
     }
 
-    // destroy pendente
     for (Entity* dead : toRemove) {
         auto it = std::remove_if(
             entities.begin(),
@@ -117,7 +119,6 @@ void World::loadLevel(const std::string& levelPath)
 
         spawnNow(std::move(entity));
 
-        // registra lookup
         persistentMap[id] = entities.back().get();
     }
 }
@@ -135,6 +136,13 @@ void World::render(SDL_Renderer* r) {
     SDL_SetRenderDrawColor(r, 170, 200, 220, 255);
     SDL_RenderClear(r);
 
+    SDL_FRect dest;
+    dest.x = 0.f;
+    dest.y = 0.f;
+    dest.w = Config::Render::LOGICAL_WIDTH;
+    dest.h = Config::Render::LOGICAL_HEIGHT;
+
+    SDL_RenderTexture(r, background, nullptr, &dest);
 
     std::sort(
         entities.begin(),

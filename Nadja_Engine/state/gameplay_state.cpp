@@ -1,4 +1,5 @@
 #include "gameplay_state.hpp"
+#include "ui/HUD/Gameplay_HUD.hpp"
 #include "gameplay/player.hpp"
 #include "engine/sprite.hpp"
 #include <SDL3/SDL.h>
@@ -9,7 +10,8 @@
 #include "save/save_system.hpp"
 #include "input/input.hpp"
 #include "engine/context.hpp"
-
+#include "gameplay/pipe.hpp"
+#include <random>
 
 GameplayState::GameplayState(World& w, SDL_Renderer* r, StateManager& s)
     : world(w), renderer(r), states(s) {
@@ -27,22 +29,33 @@ void GameplayState::enter() {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 
-    // ===== Pause Menu Initialization =====
-    pauseMenu.onResume = [this]() {
-        std::cout << "Resuming game\n";
+    // ===== Death screen Initialization =====
+    deathScreen.onBegin = [this]() {
+		
+        playerRef->alive = true;
+        
+		int index = 0;
+        for (auto& c : world.getEntities())
+        {
+            if (c->name == "Pipe")
+            {
+
+				c->x = 300 + 200 * index *1.f;
+                
+            }
+			index++;
+        }
+		playerRef->y = 0;
+		playerRef->physics->velocity = { 0, 0 };
+        
+		Points = 0;
+
+        playerRef->collisions.clear();
         setPaused(false);
+        
         };
 
-    pauseMenu.onSave = [this]() {
-        SaveSystem::saveWorld(world, "saves/save1.json");
-        };
-
-    pauseMenu.onLoad = [this]() {
-        loadSave("saves/save1.json");
-		setPaused(false);
-        };
-
-    pauseMenu.start();
+    deathScreen.start();
 
 	// ===== Input Bindings =====
     Input::clearBindings();
@@ -65,29 +78,51 @@ void GameplayState::enter() {
 
     Input::bindMouseButton("attack", SDL_BUTTON_LEFT);
 
-    // ===== PLAYER =====
+    // ===== ASSETS =====
     AudioManager::loadSound("interact", "assets/sounds/Ouch-6.wav");
-    AssetManager::loadTexture("player", "assets/sprites/player/player_IDLE.png");
-    AssetManager::loadTexture("test", "assets/sprites/test.png");
-    AssetManager::loadTexture("grass", "assets/sprites/sand_grass.png");
-    AssetManager::loadTexture("dirt", "assets/sprites/dirt.png");
-    AssetManager::loadTexture("slope", "assets/sprites/slope.png");
+    AssetManager::loadTexture("player", "assets/sprites/player/bird_y.png");
+    AssetManager::loadTexture("pipe_down", "assets/sprites/pipe_down.png");
+    AssetManager::loadTexture("pipe_up", "assets/sprites/pipe_up.png");
+    AssetManager::loadTexture("background", "assets/sprites/background.png");
+
+    world.background = AssetManager::getTexture("background");
 	// ===== LOAD SAVE =====
-    if (!SaveSystem::loadWorld(world, "saves/save1.json")){
+    /* Disabled SaveGame
+    if (!SaveSystem::loadWorld(world, "saves/save1.json")) {
         std::cerr << "[GameplayState] Failed to load save, loading default level\n";
-        world.loadLevel("level.json");
 	}
+    */
+    world.loadLevel("level.json");
 
     world.update(0.f);
 
     const auto& entities = world.getEntities();
 
+    for (auto& c : world.getEntities())
+    {
+        if (c->name == "Pipe")
+        {
+            std::random_device rd;  // Seed
+            std::mt19937 gen(rd()); // Generator
+            std::uniform_int_distribution<> dis(-50, 50);
+
+            c->y = dis(gen) * 1.f;
+
+        }
+
+    }
     for (const auto& e : entities) {
         if (e->name == "Player") {
             if (auto* player = dynamic_cast<Player*>(e.get())) {
-                hud = std::make_unique<GameplayHUD>(player);
-                break;
+				playerRef = player;
+                hud = std::make_unique<GameplayHUD>(player, this);
             }
+        } if (e->name == "Pipe") {
+            if (auto* pipe = dynamic_cast<Pipe*>(e.get())) {
+                pipe->onScore = [this]() {
+                    Points++;
+                };
+			}
         }
     }
 
@@ -125,7 +160,7 @@ void GameplayState::handleEvent(const SDL_Event& e) {
         if (hud)
             hud->forceLayout();
 
-        pauseMenu.forceLayout();
+        deathScreen.forceLayout();
     }
 }
 
@@ -143,7 +178,7 @@ void GameplayState::loadSave(const std::string& path) {
     for (const auto& e : entities) {
         if (e->name == "Player") {
             if (auto* player = dynamic_cast<Player*>(e.get())) {
-                hud = std::make_unique<GameplayHUD>(player);
+                hud = std::make_unique<GameplayHUD>(player, this);
                 break;
             }
         }
@@ -155,7 +190,7 @@ void GameplayState::update(float dt) {
 
     if (isPaused)
     {
-        pauseMenu.update();
+        deathScreen.update();
 
     }
     else
@@ -170,6 +205,7 @@ void GameplayState::update(float dt) {
 void GameplayState::render(SDL_Renderer* r) {
 
     // ===== WORLD =====
+
     BeginWorldRender(r);
     world.render(r);
 
@@ -177,7 +213,7 @@ void GameplayState::render(SDL_Renderer* r) {
     BeginUIRender(r, Engine::window);
 
     if (isPaused)
-		pauseMenu.render(r);
+		deathScreen.render(r);
     if (hud && !isPaused)
         hud->render(r);
     BeginWorldRender(r);

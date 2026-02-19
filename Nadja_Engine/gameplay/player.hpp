@@ -45,20 +45,14 @@ public:
     void start() override;
     void update(float delta) override;
     void render(SDL_Renderer* r) override;
+    std::vector<Collider> getColliders() const override;
 
-
-	void serializeState(nlohmann::json& out) const override;
-    void deserializeState(const nlohmann::json& in) override;
-    
-    float health = 100;
+    bool alive = true;
 
 private:
     Animator animator;
 
     enum AnimID {
-        IDLE = 0,
-        WALK,
-        RUN,
-        ATTACK
+        IDLE = 0
     };
 };

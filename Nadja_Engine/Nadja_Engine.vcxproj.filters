@@ -111,9 +111,6 @@
     <ClCompile Include="state\state_manager.cpp">
       <Filter>Arquivos de Origem\states</Filter>
     </ClCompile>
-    <ClCompile Include="ui\menus\pause_menu.cpp">
-      <Filter>Arquivos de Origem\UI\Menus</Filter>
-    </ClCompile>
     <ClCompile Include="ui\HUD\Gameplay_HUD.cpp">
       <Filter>Arquivos de Origem\UI\HUD</Filter>
     </ClCompile>
@@ -183,6 +180,12 @@
     <ClCompile Include="physics\gravity.cpp">
       <Filter>Arquivos de Origem\physics</Filter>
     </ClCompile>
+    <ClCompile Include="gameplay\pipe.cpp">
+      <Filter>Arquivos de Origem\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\HUD\death_screen.cpp">
+      <Filter>Arquivos de Origem\UI\HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="state\gameplay_state.hpp">
@@ -193,9 +196,6 @@
     </ClInclude>
     <ClInclude Include="state\state_manager.hpp">
       <Filter>Arquivos de Cabeçalho\states</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\menus\pause_menu.hpp">
-      <Filter>Arquivos de Cabeçalho\UI\Menus</Filter>
     </ClInclude>
     <ClInclude Include="ui\HUD\Gameplay_HUD.hpp">
       <Filter>Arquivos de Cabeçalho\UI\HUD</Filter>
@@ -277,6 +277,12 @@
     </ClInclude>
     <ClInclude Include="terrain\slope.hpp">
       <Filter>Arquivos de Cabeçalho\terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="gameplay\pipe.hpp">
+      <Filter>Arquivos de Cabeçalho\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\HUD\death_screen.hpp">
+      <Filter>Arquivos de Cabeçalho\UI\HUD</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

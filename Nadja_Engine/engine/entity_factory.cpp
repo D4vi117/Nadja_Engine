@@ -6,6 +6,7 @@
 #include "sprite.hpp"
 #include "terrain/slope.hpp"
 #include "terrain/terrain.hpp"
+#include "gameplay/pipe.hpp"
 #include "gameplay/player.hpp"
 #include "asset_manager.hpp"
 
@@ -60,6 +61,16 @@ std::unique_ptr<Entity> EntityFactory::create(const json& data) {
             AssetManager::getTexture(tex),
             0.f, 0.f
         );
+    }
+    else if (type == "Pipe")
+    {
+        entity = std::make_unique<Pipe>(
+            AssetManager::getTexture(data["components"]["Sprite"]["top"]),
+            AssetManager::getTexture(data["components"]["Sprite"]["bottom"]),
+            26.f,
+            320.f
+        );
+
     }
     else {
         std::cerr << "[EntityFactory] Unknown type: " << type << "\n";

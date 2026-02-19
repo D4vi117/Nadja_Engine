@@ -52,6 +52,8 @@ public:
     float width = 2000;
     float height = 2000;
 
+    SDL_Texture* background = nullptr;
+
 
 private:
 	float accumulator = 0.0f;
