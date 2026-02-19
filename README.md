@@ -8,6 +8,9 @@ Everything is code, and everything is intentional.
 
 ---
 
+# Trailer
+[![Watch the demo](https://img.youtube.com/vi/aUU6aMnkapA/0.jpg)](https://youtu.be/aUU6aMnkapA)
+---
 ## Features
 
 - **State-based architecture**
